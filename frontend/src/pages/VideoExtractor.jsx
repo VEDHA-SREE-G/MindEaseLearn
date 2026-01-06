@@ -9,37 +9,41 @@ export default function VideoExtractor() {
   const [error, setError] = useState('');
 
   const handleSubmit = async () => {
-    if (!url.trim()) {
-      setError('Please enter a YouTube URL');
-      return;
-    }
+  if (!url.trim()) {
+    setError('Please enter a YouTube URL');
+    return;
+  }
 
-    setLoading(true);
-    setError('');
-    setResult(null);
+  setLoading(true);
+  setError('');
+  setResult(null);
 
-    try {
-      const response = await fetch('http://localhost:3002/extract', {
+  try {
+    const response = await fetch(
+      'https://mindeaselearn.onrender.com/extract',
+      {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ url }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to extract content');
       }
+    );
 
-      setResult(data);
-    } catch (err) {
-      setError(err.message || 'An error occurred');
-    } finally {
-      setLoading(false);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.detail || 'Failed to extract content');
     }
-  };
+
+    setResult(data);
+  } catch (err) {
+    setError(err.message || 'An error occurred');
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !loading) {
