@@ -11,6 +11,7 @@ db = {}
 db.Sequelize = Sequelize
 db.sequelize = dbConfig
 db.scontents = require('./scontent.model.js')(dbConfig, DataTypes);
+db.users = require('./user.model.js')(dbConfig, DataTypes);
 db.sequelize.sync({force : false})
 .then(()=>{
     console.log("db synced successfully");

@@ -2,7 +2,6 @@ const {scontents : Scontent} = require('../models')
 const openai = require('../config/openai.config')
 exports.generateQuiz = async (req, res) => {
     try{
-        console.log("ID received:", req.params.id);
         const content = await Scontent.findByPk(req.params.id);
         if(!content){
             return res.status(404).json({error: "Content Not Found"});
