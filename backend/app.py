@@ -6,6 +6,7 @@ import yt_dlp
 import os
 import re
 from llm_summarizer import summarize_transcript
+import requests
 
 
 app = FastAPI()
@@ -62,6 +63,7 @@ class FastVideoExtractor:
 
         os.remove(audio)
         llm_result = summarize_transcript(transcript)
+        save_transcript_to_db(title, transcript)
 
         return {
             "title": title,
@@ -89,6 +91,17 @@ def extract_video(data: VideoRequest):
 @app.get("/")
 def root():
     return {"status": "MindEase backend running"}
+
+
+
+
+def save_transcript_to_db(title, transcript):
+    url = "http://localhost:3000/api/content/save-transcript"  # Node backend
+    payload = {
+        "title": title,
+        "transcript": transcript
+    }
+    requests.post(url, json=payload)
 
 
 

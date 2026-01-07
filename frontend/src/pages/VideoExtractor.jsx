@@ -20,7 +20,7 @@ export default function VideoExtractor() {
 
   try {
     const response = await fetch(
-      'https://vedha-sree-g-mindease-learn.hf.space/extract',
+      'http://127.0.0.1:3001/extract',
       {
         method: 'POST',
         headers: {
