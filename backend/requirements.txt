@@ -1,7 +1,9 @@
 fastapi
 uvicorn
-yt-dlp
 openai-whisper
+yt-dlp
 torch
 ffmpeg-python
 groq
+pydantic
+python-multipart
