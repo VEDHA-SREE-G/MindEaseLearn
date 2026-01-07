@@ -20,7 +20,7 @@ export default function VideoExtractor() {
 
   try {
     const response = await fetch(
-      'https://mindeaselearn.onrender.com/extract',
+      'http://0.0.0.0:7860/extract',
       {
         method: 'POST',
         headers: {

@@ -85,5 +85,10 @@ def extract_video(data: VideoRequest):
         import traceback
         traceback.print_exc()   # 👈 THIS IS THE KEY
         raise HTTPException(status_code=500, detail=str(e))
+    
+@app.get("/")
+def root():
+    return {"status": "MindEase backend running"}
+
 
 
