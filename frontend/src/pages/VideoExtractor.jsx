@@ -20,7 +20,7 @@ export default function VideoExtractor() {
 
   try {
     const response = await fetch(
-      'https://mindease_learn.hf.space/extract',
+      'https://mindease-learn.hf.space/extract',
       {
         method: 'POST',
         headers: {
