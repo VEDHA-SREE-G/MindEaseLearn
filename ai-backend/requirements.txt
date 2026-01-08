@@ -2,7 +2,7 @@ fastapi
 uvicorn
 openai-whisper
 yt-dlp
-torch 
+torch==2.2.2+cpu
 ffmpeg-python
 groq
 pydantic
