@@ -96,7 +96,7 @@ def root():
 
 
 def save_transcript_to_db(title, transcript):
-    url = "https://pretty-youth.up.railway.app/api/content/save-transcript"  # Node backend
+    url = "https://glistening-enjoyment.up.railway.app/api/content/save-transcript"  # Node backend
     payload = {
         "title": title,
         "transcript": transcript
