@@ -1,33 +1,33 @@
 import os
 from groq import Groq
 
-# ✅ Create client HERE (this is what was missing)
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+def get_client():
+    key = os.getenv("GROQ_API_KEY")
+    if not key:
+        raise RuntimeError("GROQ_API_KEY missing")
+    return Groq(api_key=key)
 
 def clean_text(text: str):
     return text.replace("**", "").strip()
+
 def summarize_transcript(transcript: str):
+    client = get_client()   # ✅ create client HERE (runtime)
+
     prompt = f"""
 You are an expert note-maker.
 
 TASK:
-1. Write a **clear, high-impact summary** (4–5 lines)
-2. Extract **5–7 important key points**
-3. Focus on:
-   - Core ideas
-   - Concepts
-   - Explanations
-   - NOT examples or filler sentences
+1. Write a clear, high-impact summary (4–5 lines)
+2. Extract 5–7 important key points
+3. Focus on core ideas and concepts
 
-FORMAT (STRICT):
+FORMAT:
 Summary:
 <paragraph>
 
 Key Points:
 - point 1
 - point 2
-- point 3
-- ...
 
 Transcript:
 {transcript}
@@ -49,12 +49,10 @@ Transcript:
     keypoints = [
         clean_text(p.strip("- ").strip())
         for p in keypoints_raw
-        if p.strip() and p.strip() != "**"
+        if p.strip()
     ]
 
     return {
         "summary": summary,
         "keypoints": keypoints
     }
-
-
