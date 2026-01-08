@@ -2,7 +2,7 @@ import os
 from groq import Groq
 
 def get_client():
-    key = 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#os.getenv("GROQ_API_KEY")
+    key = "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"#os.getenv("GROQ_API_KEY")
     if not key:
         raise RuntimeError("GROQ_API_KEY missing")
     return Groq(api_key=key)
