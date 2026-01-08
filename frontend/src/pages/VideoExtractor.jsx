@@ -20,7 +20,7 @@ export default function VideoExtractor() {
 
   try {
     const response = await fetch(
-      'http://127.0.0.1:3001/extract',
+      'https://glistening-enjoyment.up.railway.app/extract',
       {
         method: 'POST',
         headers: {
