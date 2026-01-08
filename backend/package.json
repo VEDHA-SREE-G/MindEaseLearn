@@ -4,7 +4,8 @@
   "description": "MindEase Learn is an innovative AI-driven platform designed to empower students with both academic excellence and emotional well-being",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "CyberMinds",
   "license": "ISC",
