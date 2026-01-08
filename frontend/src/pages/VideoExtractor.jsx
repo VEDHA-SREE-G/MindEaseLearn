@@ -20,7 +20,7 @@ export default function VideoExtractor() {
 
   try {
     const response = await fetch(
-      'pretty-youth-production-58a8.up.railway.app/extract',
+      'https://pretty-youth-production-58a8.up.railway.app/extract',
       {
         method: 'POST',
         headers: {
