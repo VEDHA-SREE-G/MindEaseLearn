@@ -1,8 +1,8 @@
 import os
 from groq import Groq
-from dotenv import load_dotenv
-load_dotenv() 
+
 def get_client():
+    print("GROQ_API_KEY exists:", bool(os.getenv("GROQ_API_KEY2")))
     key = os.getenv("GROQ_API_KEY2")
     if not key:
         raise RuntimeError("GROQ_API_KEY missing")
