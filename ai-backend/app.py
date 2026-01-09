@@ -9,6 +9,10 @@ from llm_summarizer import summarize_transcript
 import requests
 
 
+print("GROQ_API_KEY exists:", bool(os.getenv("GROQ_API_KEY2")))
+
+
+
 app = FastAPI()
 
 # ✅ Allow React to call Python
